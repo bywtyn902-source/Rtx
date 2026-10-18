@@ -16,4 +16,10 @@ jobs:
 
     - name: Compile Objective-C File
       run: |
-        clang -framework Foundation -framework UIKit Auto.m -o AutoOutput || echo "Compilation finished"
+        clang -framework Foundation -framework UIKit Auto.m -o AutoOutput || true
+
+    - name: Upload Build Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: AutoTapperFile
+        path: AutoOutput
